@@ -36,5 +36,19 @@
         });
     </script>
 
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const destination = "https://dictionary.com";
+            
+            // Attempt to open the target website in a new tab
+            const newTab = window.open(destination, '_blank');
+            
+            // If the browser blocks the pop-up, focus the fallback link for the user
+            if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+                document.getElementById('redirect-link').focus();
+            }
+        });
+    </script>
+
 </body>
 </html>
