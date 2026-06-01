@@ -1,1 +1,40 @@
-g
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        a {
+            color: #0366d6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Redirecting you to the new site in a new tab...</p>
+    <!-- Fallback link in case the browser blocks the automatic pop-up -->
+    <p>If the page does not open automatically, <a id="redirect-link" href="https://example.com" target="_blank" rel="noopener noreferrer">click here</a>.</p>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const destination = "https://example.com";
+            
+            // Attempt to open the target website in a new tab
+            const newTab = window.open(destination, '_blank');
+            
+            // If the browser blocks the pop-up, focus the fallback link for the user
+            if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+                document.getElementById('redirect-link').focus();
+            }
+        });
+    </script>
+
+</body>
+</html>
